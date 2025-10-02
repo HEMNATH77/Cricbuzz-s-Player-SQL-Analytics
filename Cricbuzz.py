@@ -19,9 +19,11 @@ HEADERS = {
 
 # Database connection
 import sqlite3
-conn = sqlite3.connect("cricbuzzdb.db")  # creates a local DB file
-cursor = conn.cursor()
 
+def connect_sqlite():
+    return sqlite3.connect("cricbuzz.db")
+conn = connect_sqlite()
+cursor = conn.cursor()
 
 
 
@@ -1022,6 +1024,7 @@ elif page == "Live Scores":
             else:
                 st.warning("No live score available yet.")
    
+
 
 
 
