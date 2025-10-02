@@ -759,10 +759,14 @@ ORDER BY (test_matches + odi_matches + t20_matches) DESC;
     selected_query = st.selectbox("Select a query:", list(sql_questions.keys()))
     query_to_run = sql_questions[selected_query]
 
-    if st.button("Run Query"):
-        conn = connect_pymysql()
+  if st.button("Run Query"):
+    conn = connect_sqlite()
+    try:
         df = pd.read_sql(query_to_run, conn)
         st.dataframe(df)
+    except Exception as e:
+        st.error(f"Error: {e}")
+    finally:
         conn.close()
 
 
@@ -1024,6 +1028,7 @@ elif page == "Live Scores":
             else:
                 st.warning("No live score available yet.")
    
+
 
 
 
