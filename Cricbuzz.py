@@ -20,12 +20,14 @@ HEADERS = {
 # Database connection
 
 def connect_pymysql():
-    return pymysql.connect(
-        host="localhost",
-        user="root",
-        password="root",
-        database="cricbuzzdb"
+    conn = pymysql.connect(
+        host=st.secrets["mysql"]["host"],
+        user=st.secrets["mysql"]["root"],
+        password=st.secrets["mysql"]["root"],
+        database=st.secrets["mysql"]["cricbuzzdb"]
     )
+    return conn
+
 
 
 #Web App - streamlit
@@ -1025,6 +1027,7 @@ elif page == "Live Scores":
             else:
                 st.warning("No live score available yet.")
    
+
 
 
 
