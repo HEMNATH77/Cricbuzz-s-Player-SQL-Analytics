@@ -18,15 +18,10 @@ HEADERS = {
 }
 
 # Database connection
+import sqlite3
+conn = sqlite3.connect("cricbuzz.db")  # creates a local DB file
+cursor = conn.cursor()
 
-def connect_pymysql():
-    conn = pymysql.connect(
-        host=st.secrets["mysql"]["host"],
-        user=st.secrets["mysql"]["root"],
-        password=st.secrets["mysql"]["root"],
-        database=st.secrets["mysql"]["cricbuzzdb"]
-    )
-    return conn
 
 
 
@@ -1027,6 +1022,7 @@ elif page == "Live Scores":
             else:
                 st.warning("No live score available yet.")
    
+
 
 
 
