@@ -39,7 +39,7 @@ if page =="Home":
     st.markdown("""
         <div style="text-align: center; font-size:18px; padding:10px; color:#ccc;">
             🚀 Welcome to your interactive cricket analytics dashboard!  
-            Get live updates, explore stats, and manage records with ease.
+            Get live updates and explore player's stats
         </div>
         <br>
     """, unsafe_allow_html=True)
@@ -241,6 +241,7 @@ elif page == "Live Scores":
             else:
                 st.warning("No live score available yet.")
    
+
 
 
 
