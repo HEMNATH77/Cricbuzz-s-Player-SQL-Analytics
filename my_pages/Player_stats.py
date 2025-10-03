@@ -54,7 +54,7 @@ def run():
                 batting = bat_data["values"] 
                 bat_df = pd.DataFrame(batting)
                 st.write("#### 🏏 Batting Stats (By Format)")
-                st.write("##### (TEST  ODI  T20I  T20)")
+                st.write("##### (TEST  ODI  T20I  IPL)")
                 st.dataframe(bat_df)
 
         # Bowling Stats
@@ -65,5 +65,6 @@ def run():
                 bowling = bowl_data["values"]
                 bowl_df = pd.DataFrame(bowling)
                 st.write("#### 🎯 Bowling Stats (By Format)")
-                st.write("##### (TEST  ODI  T20I  T20)")
+                st.write("##### (TEST  ODI  T20I  IPL)")
                 st.dataframe(bowl_df)
+
