@@ -68,17 +68,33 @@ def run():
             """)
 
             # Current Score
+            #CURRENT SCORE 
             st.subheader("📊 Current Score")
             score_data = details["score"]
+
             if score_data:
+                # Team 1 innings
                 if "team1Score" in score_data:
                     t1 = details["team1"]
-                    scr1 = score_data["team1Score"].get("inngs1", {})
-                    st.success(f"{t1}: {scr1.get('runs',0)}/{scr1.get('wickets',0)} ({scr1.get('overs',0)} overs)")
+                    t1_scores = score_data["team1Score"]
 
+                    for i in range(1, 3):  # inngs1 and inngs2
+                        inngs_key = f"inngs{i}"
+                        if inngs_key in t1_scores:
+                            inngs = t1_scores[inngs_key]
+                            st.success(f"{t1} - Innings {i}: {inngs.get('runs',0)}/{inngs.get('wickets',0)} "
+                                       f"({inngs.get('overs',0)} overs)")
+
+                # Team 2 innings
                 if "team2Score" in score_data:
                     t2 = details["team2"]
-                    scr2 = score_data["team2Score"].get("inngs1", {})
-                    st.info(f"{t2}: {scr2.get('runs',0)}/{scr2.get('wickets',0)} ({scr2.get('overs',0)} overs)")
-            else:
-                st.warning("No live score available yet.")
+                    t2_scores = score_data["team2Score"]
+
+                    for i in range(1, 3):  # inngs1 and inngs2
+                        inngs_key = f"inngs{i}"
+                        if inngs_key in t2_scores:
+                            inngs = t2_scores[inngs_key]
+                            st.info(f"{t2} - Innings {i}: {inngs.get('runs',0)}/{inngs.get('wickets',0)} "
+                                   f"({inngs.get('overs',0)} overs)")
+                else:
+                    st.warning("No live score available yet.")
