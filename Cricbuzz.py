@@ -13,7 +13,7 @@ PLAYER_BATTING_URL = "https://cricbuzz-cricket.p.rapidapi.com/stats/v1/player/{p
 PLAYER_BOWLING_URL = "https://cricbuzz-cricket.p.rapidapi.com/stats/v1/player/{player_id}/bowling"
 
 HEADERS = {
-    "x-rapidapi-key": "d8ce6d3122mshd84847e1f215325p1db145jsnc5ecec004cfa",
+    "x-rapidapi-key": "80e55cd0cemshcb9a66fdc1c4b49p154b34jsn0852fe5ba58d",
     "x-rapidapi-host": "cricbuzz-cricket.p.rapidapi.com"
 }
 
@@ -257,6 +257,7 @@ elif page == "Live Scores":
                 else:
                     st.warning("No live score available yet.")
    
+
 
 
 
